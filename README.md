@@ -73,8 +73,9 @@ token clears every grant of the project for that Google user.
    - **Branding**: app name, user support e-mail, developer contact.
    - **Audience**: *External*. Use *Internal* only if every user is in your Google Workspace
      organisation; a personal Gmail account can't use it.
-   - **Publishing status**: *In production*. In *Testing*, Google's refresh tokens expire after
-     seven days.
+   - **Publishing status**: *In production*. A new app starts in *Testing*, where Google's refresh
+     tokens expire after seven days, and a token issued in *Testing* keeps that limit after you
+     publish. Publish the app before anyone connects; whoever connected earlier connects again.
    - **Data access**: the scopes `openid`, `email` and `https://www.googleapis.com/auth/gmail.send`.
 3. **Clients** → *Create client* → *Web application*. Add the authorised redirect URI,
    `https://your-app.example.com/gmail/callback`.
@@ -195,7 +196,8 @@ Http::fake([
 - **`redirect_uri_mismatch`**: the redirect URI isn't registered exactly as the app sends it
   (scheme, host, port, path). Set `GMAIL_REDIRECT_URI` behind a proxy.
 - **The account needs a reconnect**: the user revoked access, changed their Google password, didn't
-  send for six months, or the app is in *Testing* (seven-day tokens).
+  send for six months, or connected while the app was in *Testing* (seven-day tokens, even after
+  publishing).
 - **"Google hasn't verified this app"**: expected for an unverified app with `gmail.send`.
 - **Sending limits**: Gmail's own daily limits apply, about 500 recipients a day for a personal
   account.

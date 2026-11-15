@@ -1,0 +1,73 @@
+{
+    "name": "aljazromih/laravel-gmail-transport",
+    "description": "Send Laravel mail through each user's own Gmail account, with the Gmail API and OAuth.",
+    "keywords": [
+        "laravel",
+        "gmail",
+        "gmail-api",
+        "google",
+        "oauth",
+        "mail",
+        "mailer",
+        "transport"
+    ],
+    "homepage": "https://github.com/aljazromih/laravel-gmail-transport",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aljaž Romih",
+            "homepage": "https://github.com/aljazromih"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.5|^8.0",
+        "illuminate/auth": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/database": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/encryption": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/http": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/mail": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/routing": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/session": "^10.48|^11.0|^12.0|^13.0",
+        "illuminate/support": "^10.48|^11.0|^12.0|^13.0",
+        "symfony/mailer": "^6.4|^7.0|^8.0",
+        "symfony/mime": "^6.4|^7.0|^8.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^2.9|^3.0",
+        "laravel/pint": "^1.13",
+        "orchestra/testbench": "^8.23|^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.34|^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^2.4|^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AljazRomih\\GmailTransport\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AljazRomih\\GmailTransport\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AljazRomih\\GmailTransport\\GmailTransportServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "format": "pint",
+        "analyse": "phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

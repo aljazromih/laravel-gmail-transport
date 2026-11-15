@@ -1,0 +1,12 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+# config/ holds only env() calls; Larastan would take it for code outside the app's config directory.
+# The fixtures are analysed because they are the only users of the HasGmailAccount trait.
+parameters:
+    level: 6
+    paths:
+        - src
+        - database
+        - routes
+        - tests/Fixtures
